@@ -1,4 +1,55 @@
-version: '3'
-  services:
-    mariadb:
-      # contenido de mariadb
+version: '3.1'
+
+services:
+  nginx:
+    image: nginx_inception
+    container_name: nginx
+    env_file: .env
+    restart: on-failure
+    networks: 
+      - default
+    ports:
+      - 433:433
+    depends_on:
+      - mariadb
+
+        #- wordpress
+
+  mariadb:
+    image: mariadb_inception
+    container_name: mariadb
+    env_file: .env
+    restart: on-failure
+    volumes:
+      - mariadb_volume:/var/lib/mysql
+    networks: 
+      - default
+
+        # wordpress:
+        #   image: wordpress_inception
+        #   container_name: wordpress
+        #   restart: on-failure
+        #   env_file: .env
+        #   volumes:
+        #     - wordpress_volume:/var/www/html
+        #   networks: 
+        #     - default
+        #   depends_on:
+        #     - mariadb
+
+volumes:
+  mariadb_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /Users/alex/inception_data/mariadb_volume
+        # wordpress_volume:
+        #   driver: local
+        #   driver_opts:
+        #     type: none
+        #     o: bind
+        #     device: /Users/alex/inception_data/wordpress_volume
+    
+networks:
+  default:
