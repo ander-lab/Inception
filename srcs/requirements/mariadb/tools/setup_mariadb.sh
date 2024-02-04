@@ -10,6 +10,6 @@ mysql -e "GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_NAME'@'%';"
 mysql -e "FLUSH PRIVILEGES;"
 service mariadb stop
 
-#mysqld_safe
+mysqld_safe
 
 #tail -f /dev/null

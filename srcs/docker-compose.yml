@@ -7,14 +7,16 @@ services:
     container_name: nginx
     env_file: .env
     restart: on-failure
+      #volumes:
+      #- wordpress_volume:/var/www/html
     networks: 
       - default
     ports:
-      - 443:443
+      - "80:80"
+      - "443:443"
     depends_on:
       - mariadb
-
-        #- wordpress
+      - wordpress
 
   mariadb:
     image: mariadb_inception
@@ -26,17 +28,17 @@ services:
     networks: 
       - default
 
-        # wordpress:
-        #   image: wordpress_inception
-        #   container_name: wordpress
-        #   restart: on-failure
-        #   env_file: .env
-        #   volumes:
-        #     - wordpress_volume:/var/www/html
-        #   networks: 
-        #     - default
-        #   depends_on:
-        #     - mariadb
+  wordpress:
+   image: wordpress_inception
+   container_name: wordpress
+   restart: on-failure
+   env_file: .env
+   volumes:
+     - wordpress_volume:/var/www/html
+   networks: 
+     - default
+   depends_on:
+     - mariadb
 
 volumes:
   mariadb_volume:
@@ -45,12 +47,12 @@ volumes:
       type: none
       o: bind
       device: $HOME/inception_data/mariadb_volume
-        # wordpress_volume:
-        #   driver: local
-        #   driver_opts:
-        #     type: none
-        #     o: bind
-        #     device: /Users/alex/inception_data/wordpress_volume
+  wordpress_volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: $HOME/inception_data/wordpress_volume
     
 networks:
   default:
