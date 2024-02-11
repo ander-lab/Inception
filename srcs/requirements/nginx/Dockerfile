@@ -6,7 +6,7 @@
 #    By: ajimenez <ajimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/01 19:04:33 by ajimenez          #+#    #+#              #
-#    Updated: 2024/01/17 20:06:14 by ajimenez         ###   ########.fr        #
+#    Updated: 2024/02/11 15:29:42 by ajimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install nginx openssl -y && \
     rm -rf /var/lib/apt/lists/*
 
-RUN echo "<h1>ALBA, TU PUTA MADRE CALVA</h1>" > /var/www/html/index.html
+#RUN echo "<h1>ALBA, TU PUTA MADRE CALVA</h1>" > /var/www/html/index.html
 
 RUN mkdir -p /etc/nginx/ssl
 
