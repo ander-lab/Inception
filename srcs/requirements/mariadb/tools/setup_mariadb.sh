@@ -2,7 +2,7 @@
 
 #/etc/init.d/mariadb restart
 service mariadb start
-sleep 4
+sleep 5
 
 mysql -e "CREATE DATABASE $DB_NAME;"
 mysql -e "CREATE USER '$DB_USER'@'%' IDENTIFIED BY 'MYSQL_PASSWD';"
