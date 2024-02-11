@@ -6,13 +6,13 @@
 #    By: ajimenez <ajimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 17:41:40 by ajimenez          #+#    #+#              #
-#    Updated: 2024/01/28 17:11:20 by ajimenez         ###   ########.fr        #
+#    Updated: 2024/02/05 19:37:38 by ajimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM debian:bullseye
 
-RUN apt-get update -y && apt-get install -y mariadb-server mariadb-client bash neovim systemctl
+RUN apt-get update -y && apt-get install -y mariadb-server mariadb-client bash neovim systemctl 	iputils-ping 
 
 #RUN sleep 10
 

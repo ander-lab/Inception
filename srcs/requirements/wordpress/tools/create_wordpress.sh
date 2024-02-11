@@ -33,10 +33,13 @@
 #}
 
 
-cat wp-config.php
-config_wp_php
+#cat wp-config.php
+#config_wp_php
 
-
+while ! mariadb -h"mariadb" -u$DB_USER -p$DB_PASSWORD $DB_NAME --silent; do
+	echo "[INFO] waiting mariadb..."
+	sleep 1;
+done
 	
 
 

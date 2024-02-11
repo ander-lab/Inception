@@ -13,6 +13,7 @@ RUN apt-get install -y \
     php-mysqli \
     mariadb-client \
 	bash \
+	mariadb-client \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
