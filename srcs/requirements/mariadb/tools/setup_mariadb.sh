@@ -1,7 +1,9 @@
 #!/bin/bash
+mkdir -p /var/lib/mysql
 service mariadb start
 sleep 5
 if ! mysql -e "SELECT user FROM mysql.user WHERE user='$DB_USER'" | grep "$DB_USER"; then
+	echo DEBUGGGG
     mysql -e "CREATE USER '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWD';"
 fi
 if ! mysql -e "USE $DB_NAME"; then
