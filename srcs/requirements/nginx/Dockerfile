@@ -6,7 +6,7 @@
 #    By: ajimenez <ajimenez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/01 19:04:33 by ajimenez          #+#    #+#              #
-#    Updated: 2024/02/11 15:29:42 by ajimenez         ###   ########.fr        #
+#    Updated: 2024/02/11 19:25:02 by ajimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 		-out /etc/nginx/ssl/ajimenez.crt \
 		-subj "/C=ES/ST=Madrid/L=Madrid/O=42Madrid/OU=ajimenez/CN=ajimenez"
 
-COPY ./conf/nginx.conf /etc/nginx/conf.d
+COPY ./conf/nginx.conf /etc/nginx/conf.d/
 
 RUN mkdir -p /run/nginx
 
